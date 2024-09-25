@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   # Sessão dashboard
   get 'dashboard', to: 'dashboard#index'
+
 end

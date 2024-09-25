@@ -3,7 +3,7 @@
 /*Tela de login*/
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-html,body{
+body#login-page{
 background-image: url('https://cdn.pixabay.com/photo/2023/06/03/15/01/finance-8037841_1280.jpg');
 background-size: cover;
 background-repeat: no-repeat;
@@ -18,8 +18,8 @@ align-content: center;
 
 .card{
 height: 370px;
-margin-top: auto;
-margin-bottom: auto;
+margin-top: 100px;
+/*margin-bottom: auto;*/
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
