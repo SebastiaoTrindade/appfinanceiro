@@ -1,26 +1,22 @@
 class SessionsController < ApplicationController
-    def new
+  def new
+    redirect_to dashboard_path if logged_in?
+  end    
+  
+  def create
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+      log_in(user)
+      redirect_to dashboard_path
+    else
+      flash.now[:danger] = "Email ou senha inválidos"
+      render 'new'
     end
-
-    class SessionsController < ApplicationController
-      def new
-      end
+  end
     
-      def create
-        user = User.find_by(email: params[:email])
-        if user && user.authenticate(params[:password])
-          session[:user_id] = user.id
-          redirect_to root_path, notice: "Login realizado com sucesso!"
-        else
-          flash.now[:alert] = "Email ou senha inválidos"
-          render :new
-        end
-      end
-    
-      def destroy
-        session[:user_id] = nil
-        redirect_to login_path, notice: "Logout realizado com sucesso!"
-      end
-    end
+  def destroy
+    log_out if logged_in?
+    redirect_to login_path, notice: "Logout realizado com sucesso!"
+  end  
     
 end

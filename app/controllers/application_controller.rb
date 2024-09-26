@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper  
+    before_action :logged_in_user, except: [:new, :create]
 
-    helper_method :current_user
+    private
 
-    def current_user
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    end
-
-    def require_user
-        redirect_to login_path unless current_user
+    def logged_in_user
+        unless logged_in?
+            flash[:danger] = "Por favor, faça o login"
+            redirect_to login_url unless request.path == login_path
+        end
     end
     
 end
