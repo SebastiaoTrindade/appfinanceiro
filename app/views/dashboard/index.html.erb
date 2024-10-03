@@ -1,5 +1,4 @@
-<h1 class="text-center">Aqui será o Dashboard</h1>
+<h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+<p>Bem-vindo ao seu sistema de controle financeiro!</p>
 
-<div class="container">
-    <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Tem certeza que deseja sair?' }, class: 'btn btn-danger' %>
-</div>
+<%= render 'pages/cards'%>

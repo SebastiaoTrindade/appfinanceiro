@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conta
   
   # Sessão login
   root 'sessions#new'
