@@ -44,11 +44,8 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 gem "sassc-rails"
-gem 'bootstrap', '~> 5.0.0'
+gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
-gem 'font-awesome-sass', '~> 5.15.1'
-
-
 
 # Gráficos
 gem 'chartkick'
